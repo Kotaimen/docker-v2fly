@@ -2,7 +2,7 @@ name: Docker Multi-platform CI
 
 on:
   push:
-    branches: master
+    branches: [ main ]
 
 env:
   V2RAY_VERSION: 4.33.0

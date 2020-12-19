@@ -20,7 +20,7 @@ esac
 echo Go archiecture is "$GOARCH"
 
 # download release and unpack it
-wget -q https://github.com/v2fly/v2ray-core/releases/download/v${V2RAYVERSION}/v2ray-${GOARCH}.zip -O v2ray.zip 
+wget -q https://github.com/v2fly/v2ray-core/releases/download/v${V2RAY_VERSION}/v2ray-${GOARCH}.zip -O v2ray.zip 
 apk add --no-cache unzip
 unzip v2ray.zip
 chmod +x v2ray v2ctl

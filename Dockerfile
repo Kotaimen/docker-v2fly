@@ -1,0 +1,9 @@
+ARG TARGETPLATFORM
+ARG BUILDPLATFORM
+ARG V2RAY_VERSION
+
+WORKDIR /usr/local/bin
+ADD build.sh .
+RUN ./build.sh
+
+ENTRYPOINT ["v2ray"]

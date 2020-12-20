@@ -1,8 +1,11 @@
 #!/bin/sh
 
-# mapping docker "buildplaform" to v2ray's Go archiecture
-echo BUILDPLATFORM is "$BUILDPLATFORM"
-case ${BUILDPLATFORM} in
+set -ex
+
+# mapping docker platform to v2ray's Go archiecture
+echo Build platform is "${BUILDPLATFORM}"
+echo Target platform is "${TARGETPLATFORM}"
+case ${TARGETPLATFORM} in
   "linux/arm64")
     GOARCH=linux-arm64-v8a
     ;;
@@ -20,7 +23,7 @@ esac
 echo Go archiecture is "$GOARCH"
 
 # download release and unpack it
-wget -q https://github.com/v2fly/v2ray-core/releases/download/v${V2RAYVERSION}/v2ray-${GOARCH}.zip -O v2ray.zip 
+wget -q https://github.com/v2fly/v2ray-core/releases/download/v${V2RAY_VERSION}/v2ray-${GOARCH}.zip -O v2ray.zip 
 apk add --no-cache unzip
 unzip v2ray.zip
 chmod +x v2ray v2ctl

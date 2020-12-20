@@ -5,5 +5,5 @@
 ```
 docker buildx create --name v2fly
 docker buildx use v2fly
-docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7 .
+docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7 --build-arg V2RAY_VERSION=4.33.0 .
 ```

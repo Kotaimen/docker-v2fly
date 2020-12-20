@@ -8,7 +8,9 @@ env:
   V2RAY_VERSION: 4.33.0
 
 jobs:
+
   multi:
+    name: Multi Platform Docker Build & Push
     runs-on: ubuntu-latest
     steps:
       - name: Setup QEMU

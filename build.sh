@@ -9,17 +9,20 @@ case ${TARGETPLATFORM} in
   "linux/arm64")
     GOARCH=linux-arm64-v8a
     ;;
-  "limux/arm/v6")
+  "linux/arm/v6")
     GOARCH=linux-arm32-v6
     ;;
-  "limux/arm/v7")
+  "linux/arm/v7")
     GOARCH=linux-arm32-v7a
     ;;
-   # by default, build x64
-   *)
+   "linux/amd64")
     GOARCH=linux-64
     ;;
+   "*")
+    exit -1
+    ;;
 esac
+
 echo Go archiecture is "$GOARCH"
 
 # download release and unpack it

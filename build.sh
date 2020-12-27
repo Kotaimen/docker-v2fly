@@ -24,11 +24,6 @@ case ${TARGETPLATFORM} in
 esac
 
 echo Go archiecture is "$GOARCH"
+echo V2ray version is "$V2RAY_VERSION"
 
-# download release and unpack it
 wget -q https://github.com/v2fly/v2ray-core/releases/download/v${V2RAY_VERSION}/v2ray-${GOARCH}.zip -O v2ray.zip 
-apk add --no-cache unzip
-unzip v2ray.zip
-chmod +x v2ray v2ctl
-rm v2ray.zip
-apk del unzip

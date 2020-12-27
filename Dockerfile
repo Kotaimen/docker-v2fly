@@ -4,18 +4,17 @@ ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 ARG V2RAY_VERSION=4.32.1
 
-WORKDIR /var/lib/v2ray
+WORKDIR /usr/local/bin
 
-ADD build.sh .
+ADD download.sh .
 
-RUN source build.sh
-
-RUN apk --no-cache --no-progress upgrade &&\
-    apk --no-cache --no-progress add unzip &&\
+RUN apk --no-cache --no-progress add unzip &&\
+    \
+    ./download.sh && \
     unzip v2ray.zip &&\
     chmod +x v2ray v2ctl &&\ 
     \
     apk del unzip &&\
-    rm -rf v2ray.zip build.sh systemd v2ctl systemd
+    rm -rf v2ray.zip build.sh systemd v2ctl
 
-ENTRYPOINT ["./v2ray"]
+ENTRYPOINT ["v2ray"]

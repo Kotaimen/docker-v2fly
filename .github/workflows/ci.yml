@@ -9,9 +9,10 @@ env:
 
 jobs:
 
-  multi:
-    name: Multi Platform Docker Build & Push
+  CI:
+    name: CI
     runs-on: ubuntu-latest
+    environment: prod
     steps:
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v1

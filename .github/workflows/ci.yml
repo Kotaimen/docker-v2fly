@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 env:
-  V2RAY_VERSION: 4.39.2
+  V2RAY_VERSION: 4.40.1
 
 jobs:
 

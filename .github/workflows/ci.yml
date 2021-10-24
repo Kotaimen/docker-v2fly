@@ -1,16 +1,13 @@
 name: ci
 
 on:
-  push:
-    branches: [ main ]
-
-env:
-  V2RAY_VERSION: 4.41.1
+  release:
+    types: [ created ]
 
 jobs:
 
-  CI:
-    name: CI
+  Release:
+    name: Release
     runs-on: ubuntu-latest
     environment: prod
     steps:
@@ -25,9 +22,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Set output
+        id: vars
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
       - name: Build and push
         id: docker_build
         uses: docker/build-push-action@v2
+        env:
+          RELEASE_TAG: ${{ steps.vars.outputs.tag }}
         with:
           context: .
           file: ./Dockerfile
@@ -35,8 +37,8 @@ jobs:
           push: true
           tags: |
             kotaimen/v2fly:latest
-            kotaimen/v2fly:${{ env.V2RAY_VERSION }}
+            kotaimen/v2fly:${{ env.RELEASE_TAG }}
           build-args: |
-            V2RAY_VERSION=${{ env.V2RAY_VERSION }}
+            V2RAY_VERSION=${{ env.RELEASE_TAG }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

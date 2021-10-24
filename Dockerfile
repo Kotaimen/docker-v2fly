@@ -2,12 +2,12 @@ FROM alpine:3
 
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
-ARG V2RAY_VERSION=4.32.1
+ARG V2RAY_VERSION=4.43.0
 
 WORKDIR /usr/local/bin
 
-ADD download.sh .
+ADD build.sh .
 ADD config.jsonc /etc/v2ray/
 
-RUN ./download.sh 
+RUN ./build.sh 
 ENTRYPOINT ["v2ray", "-c", "/etc/v2ray/config.jsonc"]

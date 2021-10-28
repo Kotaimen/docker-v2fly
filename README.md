@@ -1,7 +1,6 @@
 # v2fly Multiarch Docker
 
-[![ci](https://github.com/Kotaimen/docker-v2fly/actions/workflows/ci.yml/badge.svg)](https://github.com/Kotaimen/docker-v2fly/actions/workflows/ci.yml)
-
+Upper stream: https://github.com/v2fly/v2ray-core
 ## Quick start
 
 ```

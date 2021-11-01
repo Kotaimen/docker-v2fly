@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  V2RAY_VERSION: 4.43.0
+
 jobs:
 
   Release:
@@ -33,4 +36,4 @@ jobs:
         with:
           push: true
           set: |
-            v2fly.args.V2RAY_VERSION=${{ secrets.V2RAY_VERSION }}
+            v2fly.args.V2RAY_VERSION=${{ env.V2RAY_VERSION }}

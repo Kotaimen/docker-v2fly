@@ -1,8 +1,9 @@
 name: ci
 
 on:
-  release:
-    types: [ published ]
+  push:
+    branches:
+      - main
 
 jobs:
 
@@ -11,34 +12,32 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     steps:
-      - name: Setup QEMU
+      - 
+        name: Setup QEMU
         uses: docker/setup-qemu-action@v1
-      - name: Setup Docker Buildx
+      - 
+        name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v1
-      - name: Login to DockerHub
+      - 
+        name: Login to DockerHub
         uses: docker/login-action@v1 
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Checkout
+      - 
+        name: Checkout
         uses: actions/checkout@v2
-      - name: Set output
+      - 
+        name: Set output
         id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}
-      - name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v2
-        env:
-          RELEASE_TAG: ${{ steps.vars.outputs.tag }}
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64,linux/arm64,linux/arm/v6,linux/arm/v7
-          push: true
-          tags: |
-            kotaimen/v2fly:latest
-            kotaimen/v2fly:${{ env.RELEASE_TAG }}
-          build-args: |
-            V2RAY_VERSION=${{ env.RELEASE_TAG }}
-      - name: Image digest
+        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}     
+      - 
+        name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+      -
+        name: Build and push
+        uses: docker/bake-action@master
+        with:
+          push: true
+          set: |
+            v2fly.args.V2RAY_VERSION=${{ secrets.V2RAY_VERSION }}

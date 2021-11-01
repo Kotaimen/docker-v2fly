@@ -32,16 +32,16 @@ unzip v2ray.zip
 chmod +x v2ray v2ctl 
 
 # Update geoip & site data
+rm *.dat
 
-# -- offical v2ray data --
+# -- offical v2ray rules --
 # wget -q https://github.com/v2fly/geoip/releases/latest/download/geoip.dat -O geoip.dat
-# wget -q https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat -O geoip-only-cn-private.dat
+wget -q https://github.com/v2fly/geoip/releases/latest/download/geoip-only-cn-private.dat -O geoip-only-cn-private.dat
 # wget -q https://github.com/v2fly/domain-list-community/releases/latest/download/dlc.dat -O geosite.dat
 
 # -- super powered rules --
 wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geoip.dat -O geoip.dat
-wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -O geoip-only-cn-private.dat
-
+wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -O geosite.dat
 
 # delete unused files
 rm -rf v2ray.zip *.json v2ctl systemd

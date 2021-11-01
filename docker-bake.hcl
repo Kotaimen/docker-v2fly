@@ -1,5 +1,5 @@
 variable "V2RAY_VERSION" {
-	default = "4.34.0"
+	default = "4.42.2"
 }
 
 group "default" {
@@ -8,14 +8,18 @@ group "default" {
 
 target "v2fly" {
    context = "."
-	dockerfile = "Dockerfile"
+   dockerfile = "Dockerfile"
    platforms = [
       "linux/amd64", 
       "linux/arm64", 
       "linux/arm/v6", 
-      "linux/arm/v7" 
-      ]
+      "linux/arm/v7"
+   ]
+   args = {
+      V2RAY_VERSION = "${V2RAY_VERSION}"
+   }
    tags = [
       "docker.io/kotaimen/v2fly:${V2RAY_VERSION}",
+      "docker.io/kotaimen/v2fly:latest"
    ]
 }

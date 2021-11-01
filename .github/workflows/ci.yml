@@ -27,13 +27,6 @@ jobs:
       - 
         name: Checkout
         uses: actions/checkout@v2
-      - 
-        name: Set output
-        id: vars
-        run: echo ::set-output name=tag::${GITHUB_REF#refs/*/}     
-      - 
-        name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
       -
         name: Build and push
         uses: docker/bake-action@master

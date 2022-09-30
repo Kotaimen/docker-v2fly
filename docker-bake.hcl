@@ -1,5 +1,5 @@
 variable "V2RAY_VERSION" {
-	default = "4.44.0"
+	default = "4.45.2"
 }
 
 group "default" {

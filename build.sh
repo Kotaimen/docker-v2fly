@@ -44,4 +44,4 @@ wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download
 wget -q https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat -O geosite.dat
 
 # delete unused files
-rm -rf v2ray.zip *.json v2ctl systemd
+rm -rf v2ray.zip *.json

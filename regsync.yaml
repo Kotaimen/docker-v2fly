@@ -19,12 +19,11 @@ sync:
     tags:
       allow:
       - "v4"
-      - "5.7.0"
+      - "5.12.1"
   - source: kotaimen/v2fly
     target: 470086494900.dkr.ecr.cn-north-1.amazonaws.com.cn/v2fly
     type: repository
     interval: 60m
     tags:
       allow:
-      - "v4"
-      - "5.7.0"
+      - "5.12.1"

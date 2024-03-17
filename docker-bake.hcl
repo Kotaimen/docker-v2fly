@@ -1,23 +1,9 @@
 variable "V2FLY_VERSION" {
-   default = "5.12.1"
+   default = "5.14.1"
 }
 group "default" {
    targets = [
-      // "v4", 
       "v5"
-   ]
-}
-
-target "v4" {
-   context = "v4"
-   dockerfile = "Dockerfile"
-   platforms = [
-      "linux/amd64",
-      "linux/arm64",
-      "linux/arm/v7"
-   ]
-   tags = [
-      "docker.io/kotaimen/v2fly:v4",
    ]
 }
 

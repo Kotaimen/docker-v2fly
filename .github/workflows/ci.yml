@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  V2RAY_VERSION: 5.14.1
+  V2RAY_VERSION: 5.16.1
 
 jobs:
 

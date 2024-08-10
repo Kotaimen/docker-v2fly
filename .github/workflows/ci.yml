@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
         name: Build and push
-        uses: docker/bake-action@v4
+        uses: docker/bake-action@v5
         with:
           push: true
           set: |

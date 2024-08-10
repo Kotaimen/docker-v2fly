@@ -1,5 +1,5 @@
 variable "V2FLY_VERSION" {
-   default = "5.14.1"
+   default = "5.16.1"
 }
 group "default" {
    targets = [
@@ -16,7 +16,6 @@ target "v5" {
    platforms = [
       "linux/amd64",
       "linux/arm64",
-      // "linux/arm/v7"
    ]
    tags = [
       "docker.io/kotaimen/v2fly:${V2FLY_VERSION}",

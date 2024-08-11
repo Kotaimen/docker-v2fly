@@ -18,6 +18,6 @@ target "v5" {
       "linux/arm64",
    ]
    tags = [
-      "docker.io/kotaimen/v2fly:${V2FLY_VERSION}",
+      "ghcr.io/kotaimen/v2fly:${V2FLY_VERSION}",
    ]
 }

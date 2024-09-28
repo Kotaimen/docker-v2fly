@@ -6,7 +6,7 @@ on:
       - main
 
 env:
-  V2RAY_VERSION: 5.19.0
+  V2FLY_VERSION: 5.19.0
 
 permissions:
   contents: read
@@ -40,4 +40,4 @@ jobs:
         with:
           push: true
           set: |
-            v5.args.V2RAY_VERSION=${{ env.V2RAY_VERSION }}
+            v5.args.V2FLY_VERSION=${{ env.V2FLY_VERSION }}

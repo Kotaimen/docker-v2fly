@@ -6,8 +6,7 @@ on:
       - main
 
 env:
-  V2FLY_VERSION: 5.19.0
-
+  V2FLY_VERSION: ${{ vars.V2FLY_VERSION }}
 permissions:
   contents: read
   packages: write

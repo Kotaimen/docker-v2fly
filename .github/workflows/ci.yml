@@ -4,9 +4,16 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      v2fly_version:
+        description: 'V2Fly Version'
+        required: false
+        type: string
 
 env:
-  V2FLY_VERSION: 5.19.0
+  V2FLY_VERSION: ${{ inputs.v2fly_version || vars.V2FLY_VERSION }}
+
 
 permissions:
   contents: read

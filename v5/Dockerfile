@@ -1,6 +1,6 @@
-FROM public.ecr.aws/docker/library/golang:1.23-alpine AS build
+FROM public.ecr.aws/docker/library/golang:1.24-alpine AS build
 
-ARG V2FLY_VERSION=5.18.0
+ARG V2FLY_VERSION=5.32.0
 
 WORKDIR /build
 

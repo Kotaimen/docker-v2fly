@@ -1,6 +1,6 @@
 FROM public.ecr.aws/docker/library/golang:1.24-alpine AS build
 
-ARG V2FLY_VERSION=5.32.0
+ARG V2FLY_VERSION=5.37.0
 
 WORKDIR /build
 
@@ -31,6 +31,6 @@ COPY --from=build /build/v2ray-core/build_assets/geoip.dat /etc/v2ray/
 COPY --from=build /build/v2ray-core/build_assets/geosite.dat /etc/v2ray/
 COPY --from=build /build/v2ray-core/release/config/config.json /etc/v2ray/config.jsonc
 
-ENV V2RAY_LOCATION_ASSET /etc/v2ray/
+ENV V2RAY_LOCATION_ASSET=/etc/v2ray/
 
 ENTRYPOINT [ "v2ray", "run", "-c", "/etc/v2ray/config.jsonc" ]

@@ -1,5 +1,5 @@
 variable "V2FLY_VERSION" {
-   default = "5.37.0"
+   default = "5.49.0"
 }
 group "default" {
    targets = [
